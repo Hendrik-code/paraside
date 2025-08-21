@@ -1,13 +1,8 @@
-from TPTBox import NII
-
-# from skimage import measure
-from scipy.ndimage import convolve, gaussian_filter, sobel
 import numpy as np
-
-# from TPTBox.core.poi_fun.ray_casting import max_distance_ray_cast_convex
-# from scipy.ndimage import map_coordinates
-from scipy.interpolate import RegularGridInterpolator
 from joblib import Parallel, delayed
+from scipy.interpolate import RegularGridInterpolator
+from scipy.ndimage import convolve, gaussian_filter, sobel
+from TPTBox import NII
 
 
 def calc_label_thickness(

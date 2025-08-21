@@ -1,10 +1,3 @@
-import sys
-from pathlib import Path
-
-file = Path(__file__).resolve()
-sys.path.append(str(file.parents[1]))
-sys.path.append(str(file.parents[2]))
-
 from enum import Enum, auto
 from pathlib import Path
 from warnings import simplefilter
@@ -15,6 +8,7 @@ from sklearn.exceptions import ConvergenceWarning
 from TPTBox import NII
 from TPTBox.core import np_utils
 from TPTBox.core.sitk_utils import nii_to_sitk
+
 from src.calc_label_thickness import calc_label_thickness
 
 simplefilter("ignore", category=ConvergenceWarning)

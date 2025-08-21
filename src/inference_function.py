@@ -1,14 +1,7 @@
-import sys
-from pathlib import Path
-
-file = Path(__file__).resolve()
-sys.path.append(str(file.parents[1]))
-sys.path.append(str(file.parents[2]))
-
-from TPTBox import NII
+import numpy as np
 from spineps.seg_enums import OutputType
 from spineps.seg_model import Segmentation_Model
-import numpy as np
+from TPTBox import NII
 
 
 def assign_ccs_based_on_mask_neighbors(cc_msk: NII, label_msk: NII) -> NII:

@@ -1,14 +1,15 @@
 ####################
 # Saved models and their direct paths for development
 ####################
-from spineps.get_models import get_actual_model
-from spineps.seg_model import Segmentation_Model
-from pathlib import Path
 import shutil
 import urllib.request
 import zipfile
-from tqdm import tqdm
+from pathlib import Path
+
+from spineps.get_models import get_actual_model
+from spineps.seg_model import Segmentation_Model
 from TPTBox import Print_Logger
+from tqdm import tqdm
 
 
 def load_model(model: str | Path | int) -> Segmentation_Model:

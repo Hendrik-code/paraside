@@ -1,9 +1,11 @@
 from pathlib import Path
+
 from TPTBox import NII
-from src.load_model import load_model
-from src.inference_function import segment_nose
-from src.ethmoid_split import split_ethmoid
+
 from src.calc_features import compute_features
+from src.ethmoid_split import split_ethmoid
+from src.inference_function import segment_nose
+from src.load_model import load_model
 
 
 def run_example(

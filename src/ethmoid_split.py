@@ -1,15 +1,8 @@
-import sys
 from pathlib import Path
-import os
 
-file = Path(__file__).resolve()
-sys.path.append(str(file.parents[1]))
-sys.path.append(str(file.parents[2]))
-
-from pathlib import Path
-from tqdm import tqdm
-from TPTBox import NII
 import numpy as np
+from TPTBox import NII
+from tqdm import tqdm
 
 # (7/8, 15/16)
 ETHMOIDLABELS = [7, 8, 15, 16]
