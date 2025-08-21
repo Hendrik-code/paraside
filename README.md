@@ -27,7 +27,87 @@ If you are using PARASIDE, please cite the following:
 }
 ```
 
+## Installation
 
+In order to use this code, you need to install the TPTBox (https://github.com/Hendrik-code/TPTBox) among other packages. See pyproject.toml for the required packages.
+```python
+pip install TPTBox
+```
+Download the latest model weights from the release section (https://github.com/Hendrik-code/paraside/releases).
+
+If you have done so, you can use PARASIDE like this:
+
+```python
+from TPTBox import NII
+from src.load_model import load_model
+from src.inference_function import segment_nose
+from src.ethmoid_split import split_ethmoid
+from src.calc_features import compute_features
+
+# load the image you want to process
+input_file = "<path-to-your-file>.nii.gz"
+input_nii: NII = NII.load(input_file, seg=False)
+
+# load the segmentation model
+paraside_segmentation_model = load_model(model_path_or_version)
+
+# create the segmentation mask
+segmentation: NII = segment_nose(
+    image_nii=input_nii,
+    model=paraside_segmentation_model,
+)
+# save the nifti back to disk
+segmentation.save(output_dir + f"{input_filename}_segmentation.nii.gz")
+
+# split the ethmoid segmentation into anterior and posterior part
+segmentation_ethmoid_split = split_ethmoid(segmentation)
+# save the nifti back to disk
+segmentation_ethmoid_split.save(output_dir + f"{input_filename}_segmentation_ethmoid_split.nii.gz")
+
+# take measurements
+features: dict[str, float] = compute_features(
+    input_nii,
+    segmentation_ethmoid_split,
+)
+```
+
+
+## Segmentation Label
+
+| Label | Structure |
+| :---: | --------- |
+| 1  | Air Maxillaris right |
+| 2  | Air Maxillaris left |
+| 3  | Air Frontalis right |
+| 4  | Air Frontalis left |
+| 5  | Air Sphenoid right |
+| 6  | Air Sphenoid left |
+| 7  | Air Ethmoid right |
+| 8  | Air Ethmoid left |
+
+If the ethmoid got split into multiple subparts, the labels are:
+| Label | Structure |
+| :---: | --------- |
+| 7     | Air Ethmoid Anterior right |
+| 8     | Air Ethmoid Anterior left |
+| 107  | Air Ethmoid Posterior right |
+| 108  | Air Ethmoid Posterior right |
+| 207  | Air Osteometeal Complex right |
+| 208  | Air Osteometeal Complex left |
+
+The labels above are all the AIR labels. The corresponding SOFT TISSUE labels can be gathered by adding 8 on the airlabel.
+
+e.G.:
+| Label | Structure |
+| :---: | --------- |
+| 9  | Soft tissue Maxillaris right |
+| 10  | Soft tissue Maxillaris left |
+| 11  | Soft tissue Frontalis right |
+| 12  | Soft tissue Frontalis left |
+| 13  | Soft tissue Sphenoid right |
+| 14  | Soft tissue Sphenoid left |
+| 15  | Soft tissue Ethmoid right |
+| 16  | Soft tissue Ethmoid left |
 
 ## Authorship
 
@@ -46,7 +126,7 @@ https://aim-lab.io/author/hendrik-moller/
 
 ## License
 
-Copyright 2023 Hendrik Möller
+Copyright 2025 Hendrik Möller
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

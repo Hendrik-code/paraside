@@ -1,3 +1,11 @@
+*.nii.gz
+*.nii
+/Paraside_*
+/Paraside_*/*
+*.json
+*.pth
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
