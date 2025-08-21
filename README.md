@@ -4,7 +4,7 @@
 
 # Paranasal Segmentation for Imaging-based Disease Evaluation
 
-![logo](paraside/images/logo.jpeg?raw=true)
+![logo](https://github.com/Hendrik-code/paraside/blob/main/images/logo.jpeg?raw=true)
 
 
 This is the official repository of the paper "PARASIDE: An Automatic Paranasal Sinus Segmentation and Structure Analysis Tool for Magnetic Resonance Imaging"
