@@ -69,7 +69,9 @@ if __name__ == "__main__":
     print("Extracted features:")
     for fk, fv in features.items():
         if isinstance(fv, list):
-            fv = f"{round(np.mean(fv), 3)} +- {round(np.std(fv), 3)}"
+            fvv = f"{round(np.mean(fv), 3)} +- {round(np.std(fv), 3)}"
         elif isinstance(fv, float):
-            fv = round(fv, 3)
-        print(f"{fk}: {fv}")
+            fvv = round(fv, 3)
+        else:
+            fvv = fv
+        print(f"{fk}: {fvv}")

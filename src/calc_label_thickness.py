@@ -69,7 +69,7 @@ def compute_boundary_normals(seg, label1, label2):
     kernel[0, 1, 1] = kernel[2, 1, 1] = 1
 
     # Convolve class 1 with kernel to count neighbors
-    neighbors_of_class1 = convolve(class1.astype(int), kernel, mode="constant")
+    # neighbors_of_class1 = convolve(class1.astype(int), kernel, mode="constant")
 
     # Find class 1 voxels that are adjacent to class 2
     touching_mask = np.logical_and(class1, convolve(class2.astype(int), kernel, mode="constant") > 0)
@@ -137,7 +137,7 @@ def raymarch_until_background(
     #    mask_value = interpolator(coords)
     #    return mask_value > 0.5
 
-    for step in range(max_steps):
+    for _step in range(max_steps):
         if max_distance is not None:
             dist = np.linalg.norm(pos - start_coord)
             if dist >= max_distance:

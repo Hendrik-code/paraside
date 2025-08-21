@@ -27,9 +27,9 @@ def load_model(model: str | Path | int) -> Segmentation_Model:
         raise TypeError("Model must be a string, Path, or integer.")
 
 
-def load_model_by_path(dir: str | Path) -> Segmentation_Model:
+def load_model_by_path(path_dir: str | Path) -> Segmentation_Model:
     """Load a model from a specified directory."""
-    return get_actual_model(in_config=dir).load()
+    return get_actual_model(in_config=path_dir).load()
 
 
 def load_model_by_version(version: int) -> Segmentation_Model:

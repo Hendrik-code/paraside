@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import numpy as np
 from spineps.seg_enums import OutputType
 from spineps.seg_model import Segmentation_Model
