@@ -2,7 +2,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 
-# Paranasal Segmentation for Imaging-based Disease Evaluation
+# PARASIDE: **PARA**nasal **S**egmentation for **I**maging-based **D**isease **E**valuation
 
 <div align="center">
 <a href="https://github.com/Hendrik-code/paraside/blob/main/images/logo.jpeg"><img src="https://github.com/Hendrik-code/paraside/blob/main/images/logo.jpeg" width="512" ></a>
@@ -11,7 +11,7 @@
 
 This is the official repository of the paper "PARASIDE: An Automatic Paranasal Sinus Segmentation and Structure Analysis Tool for Magnetic Resonance Imaging"
 
-PARASIDE enables the automated whole-paranasal sinus segmentation for T1-weighted MRI, extracting quantitative features that predict CRS severity accurately.
+PARASIDE enables the automated whole-paranasal sinus segmentation for T1-weighted MRI, extracting quantitative features.
 
 
 ## Citation
@@ -111,16 +111,19 @@ e.G.:
 
 ## Authorship
 
-This pipeline was created by Hendrik Möller, M.Sc. (he/him)<br>
-PhD Researcher at Department for Interventional and Diagnostic Neuroradiology
+This pipeline was created in a collaboration by:
 
-Developed within an ERC Grant at<br>
-University Hospital rechts der Isar at Technical University of Munich<br>
-Ismaninger Street 22, 81675 Munich
 
-https://deep-spine.de/<br>
-https://aim-lab.io/author/hendrik-moller/
+| Hendrik Möller (he/him) | Dr. Fabian Paperlein (he/him) |
+| :---------: | :---------: |
+| PhD Researcher | Medical Doctor |
+| Department for Interventional and Diagnostic Neuroradiology  | Department of Otorhinolaryngology, Head and Neck Surgery |
+| University Hospital rechts der Isar at Technical University of Munich <br> Ismaninger Street 22, 81675 Munich | University Medicine Greifswald <br> Fleischmann Straße 10, Greifswald, 17475, Mecklenburg-Western |
+| https://deep-spine.de/ <br>https://aim-lab.io/author/hendrik-moller/  | https://www.researchgate.net/profile/Fabian-Paperlein |
+| hendrik.moeller[at]tum.de | fabian.paperlein[at]med.uni-greifswald.de |
+| | |
 
+We thank all co-authors and contributors!
 
 
 
