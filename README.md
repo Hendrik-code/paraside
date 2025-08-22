@@ -119,9 +119,8 @@ This pipeline was created in a collaboration by:
 | PhD Researcher | Medical Doctor |
 | Department for Interventional and Diagnostic Neuroradiology  | Department of Otorhinolaryngology, Head and Neck Surgery |
 | University Hospital rechts der Isar at Technical University of Munich <br> Ismaninger Street 22, 81675 Munich | University Medicine Greifswald <br> Fleischmann Straße 10, Greifswald, 17475, Mecklenburg-Western |
-| https://deep-spine.de/ <br>https://aim-lab.io/author/hendrik-moller/  | https://www.researchgate.net/profile/Fabian-Paperlein |
+| - https://deep-spine.de/ <br>- https://aim-lab.io/author/hendrik-moller/  | - https://www.researchgate.net/profile/Fabian-Paperlein <br> - https://www.medizin.uni-greifswald.de/hno/klinik/mitarbeitende/schwitzing-fabian/|
 | hendrik.moeller[at]tum.de | fabian.paperlein[at]med.uni-greifswald.de |
-| | |
 
 We thank all co-authors and contributors!
 
