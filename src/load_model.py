@@ -12,27 +12,36 @@ from TPTBox import Print_Logger
 from tqdm import tqdm
 
 
-def load_model(model: str | Path | int) -> Segmentation_Model:
+def load_model(
+    model: str | Path | int,
+    folds: list[str | int] = ["all"],
+) -> Segmentation_Model:
     """
     Load a model by its name, path, or version number.
     """
     if isinstance(model, int):
-        return load_model_by_version(model)
+        return load_model_by_version(model, folds=folds)
     elif isinstance(model, (str, Path)):
         if Path(model).exists():
-            return load_model_by_path(model)
+            return load_model_by_path(model, folds=folds)
         else:
             raise ValueError(f"Model path {model} does not exist.")
     else:
         raise TypeError("Model must be a string, Path, or integer.")
 
 
-def load_model_by_path(path_dir: str | Path) -> Segmentation_Model:
+def load_model_by_path(
+    path_dir: str | Path,
+    folds: list[str | int] = ["all"],
+) -> Segmentation_Model:
     """Load a model from a specified directory."""
-    return get_actual_model(in_config=path_dir).load()
+    return get_actual_model(in_config=path_dir).load(folds=folds)
 
 
-def load_model_by_version(version: int) -> Segmentation_Model:
+def load_model_by_version(
+    version: int,
+    folds: list[str | int] = ["all"],
+) -> Segmentation_Model:
     """
     Load a model by its version number.
     """
@@ -46,7 +55,7 @@ def load_model_by_version(version: int) -> Segmentation_Model:
         weights_url = f"https://github.com/Hendrik-code/paraside/releases/download/v1.0.0/{modelname}.zip"
 
         download_weights(weights_url, path)
-        return load_model_by_path(path)
+        return load_model_by_path(path, folds=folds)
 
 
 def download_weights(weights_url, out_path) -> None:
