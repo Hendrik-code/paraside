@@ -14,11 +14,13 @@ from tqdm import tqdm
 
 def load_model(
     model: str | Path | int,
-    folds: list[str | int] = ["all"],
+    folds: list[str | int] | None = None,
 ) -> Segmentation_Model:
     """
     Load a model by its name, path, or version number.
     """
+    if folds is None:
+        folds = ["all"]
     if isinstance(model, int):
         return load_model_by_version(model, folds=folds)
     elif isinstance(model, (str, Path)):
@@ -32,19 +34,24 @@ def load_model(
 
 def load_model_by_path(
     path_dir: str | Path,
-    folds: list[str | int] = ["all"],
+    folds: list[str | int] | None = None,
 ) -> Segmentation_Model:
     """Load a model from a specified directory."""
+    if folds is None:
+        folds = ["all"]
+    assert folds is not None
     return get_actual_model(in_config=path_dir).load(folds=folds)
 
 
 def load_model_by_version(
     version: int,
-    folds: list[str | int] = ["all"],
+    folds: list[str | int] | None = None,
 ) -> Segmentation_Model:
     """
     Load a model by its version number.
     """
+    if folds is None:
+        folds = ["all"]
     modelname = f"Paraside_model_weights_v{version}"
     path = f"model_weights/{modelname}"
 
