@@ -21,7 +21,7 @@ If you are using PARASIDE, please cite the following:
 ```
 @article{moller2025paraside,
   title={PARASIDE: An Automatic Paranasal Sinus Segmentation and Structure Analysis Tool for MRI},
-  author={M{\"o}ller, Hendrik and Krautschick, Lukas and Atad, Matan and Graf, Robert and Busch, Chia-Jung and Beule, Achim and Scharf, Christian and Kaderali, Lars and Menze, Bjoern and Rueckert, Daniel and others},
+  author={M{\"o}ller, Hendrik and Krautschick, Lukas and Atad, Matan and Graf, Robert and Busch, Chia-Jung and Beule, Achim and Scharf, Christian and Kaderali, Lars and Menze, Bjoern and Rueckert, Daniel and Paperlein, Fabian},
   journal={arXiv preprint arXiv:2501.14514},
   year={2025}
 }
