@@ -53,8 +53,9 @@ def featurename(label: str | int | tuple[int, ...], f: FEATURES):
 def compute_features(
     image_nii: NII,
     segmentation_nii: NII,
+    params_path: str = "src/Params.yaml",
 ) -> dict[str, float]:
-    extractor = featureextractor.RadiomicsFeatureExtractor("src/Params.yaml")
+    extractor = featureextractor.RadiomicsFeatureExtractor(params_path)
 
     image_nii = image_nii.reorient()
     segmentation_nii = segmentation_nii.reorient()
