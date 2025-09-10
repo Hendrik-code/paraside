@@ -29,11 +29,36 @@ If you are using PARASIDE, please cite the following:
 
 ## Installation
 
+The order of the following instructions is important!
+
+1. Use Conda or Pip to create a venv for python 3.11, we are using conda for this example:
+```bash
+conda create --name paraside python=3.11
+conda activate paraside
+conda install pip
+```
+2. Go to <a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a> and install a correct pytorch version for your machine in your venv
+3. Confirm that your pytorch package is working! Try calling these commands:
+```bash
+nvidia-smi
+```
+This should show your GPU and it's usage.
+```bash
+python -c "import torch; print(torch.cuda.is_available())"
+```
+This should throw no errors and return True
+
 In order to use this code, you need to install the TPTBox (https://github.com/Hendrik-code/TPTBox) among other packages. See pyproject.toml for the required packages.
 ```python
 pip install TPTBox
 ```
-Download the latest model weights from the release section (https://github.com/Hendrik-code/paraside/releases).
+
+You can also just install all requirements by calling while on the directory level of the pyproject.toml
+```python
+pip install -e .
+```
+
+(Optionally) Download the latest model weights from the release section (https://github.com/Hendrik-code/paraside/releases).
 
 If you have done so, you can use PARASIDE like this:
 
