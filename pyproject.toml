@@ -14,8 +14,7 @@ readme = "README.md"
 exclude = ["images", "examples"]
 
 [tool.poetry.scripts]
-paraside = 'paraside.entrypoint:entry_point'
-paraside_ = 'paraside.entrypoint:entrypoint_no_checks'
+paraside = 'src.entrypoint:entry_point'
 
 [tool.poetry.dependencies]
 python = "^3.10 || ^3.11 || ^3.12 || ^3.13"
@@ -63,14 +62,6 @@ exclude = [
     "dist",
     "node_modules",
     "venv",
-    "spineps/Unet3D",
-    "spineps/utils/data_iterators.py",
-    "spineps/utils/default_preprocessor.py",
-    "spineps/utils/export_prediction.py",
-    "spineps/utils/get_network_from_plans.py",
-    "spineps/utils/plans_handler.py",
-    "spineps/utils/predictor.py",
-    "spineps/utils/sliding_window_prediction.py",
     ".toml",
 ]
 line-length = 140

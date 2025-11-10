@@ -14,18 +14,22 @@ from tqdm import tqdm
 
 def load_model(
     model: str | Path | int,
+    use_cpu: bool = False,
     folds: list[str | int] | None = None,
 ) -> Segmentation_Model:
     """
     Load a model by its name, path, or version number.
     """
+    # if model is a str but a number, convert to int
+    if isinstance(model, str) and model.isdigit():
+        model = int(model)
     if folds is None:
         folds = ["all"]
     if isinstance(model, int):
-        return load_model_by_version(model, folds=folds)
+        return load_model_by_version(model, folds=folds, use_cpu=use_cpu)
     elif isinstance(model, (str, Path)):
         if Path(model).exists():
-            return load_model_by_path(model, folds=folds)
+            return load_model_by_path(model, folds=folds, use_cpu=use_cpu)
         else:
             raise ValueError(f"Model path {model} does not exist.")
     else:
@@ -35,16 +39,21 @@ def load_model(
 def load_model_by_path(
     path_dir: str | Path,
     folds: list[str | int] | None = None,
+    use_cpu: bool = False,
 ) -> Segmentation_Model:
     """Load a model from a specified directory."""
     if folds is None:
         folds = ["all"]
     assert folds is not None
-    return get_actual_model(in_config=path_dir).load(folds=folds)
+    return get_actual_model(
+        in_config=path_dir,
+        use_cpu=use_cpu,
+    ).load(folds=folds)
 
 
 def load_model_by_version(
     version: int,
+    use_cpu: bool = False,
     folds: list[str | int] | None = None,
 ) -> Segmentation_Model:
     """
@@ -56,13 +65,16 @@ def load_model_by_version(
     path = f"model_weights/{modelname}"
 
     if Path(path).exists():
-        return load_model_by_path(path)
+        return load_model_by_path(
+            path,
+            use_cpu=use_cpu,
+        )
     else:
         print(f"Model version {version} not found locally. Downloading...")
         weights_url = f"https://github.com/Hendrik-code/paraside/releases/download/v1.0.0/{modelname}.zip"
 
         download_weights(weights_url, path)
-        return load_model_by_path(path, folds=folds)
+        return load_model_by_path(path, folds=folds, use_cpu=use_cpu)
 
 
 def download_weights(weights_url, out_path) -> None:

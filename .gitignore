@@ -4,6 +4,9 @@
 /Paraside_*/*
 *.json
 *.pth
+model_weights/*
+paraside_output/
+paraside_output/*
 
 
 # Byte-compiled / optimized / DLL files

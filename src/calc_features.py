@@ -9,7 +9,7 @@ from TPTBox import NII
 from TPTBox.core import np_utils
 from TPTBox.core.sitk_utils import nii_to_sitk
 
-from src.calc_label_thickness import calc_label_thickness
+from calc_label_thickness import calc_label_thickness
 
 simplefilter("ignore", category=ConvergenceWarning)
 
@@ -33,6 +33,7 @@ class FEATURES(Enum):
     IntensityLIST = auto()
     #
     SurfaceThicknessLIST = auto()  # list of thicknesses for each voxel in the label
+    SurfaceThickness95Percentile = auto()  # 95th percentile of thicknesses
     SurfaceCoverage = auto()  # percentage of surface voxels in the label
     #
     SpatialRelation = auto()
@@ -141,6 +142,12 @@ def compute_features(
                 labelforthickness=1,
                 labelforboundary=2,
             )
+            if len(features[featurename((label_s, label_v), FEATURES.SurfaceThicknessLIST)]) > 0:
+                features[featurename((label_s, label_v), FEATURES.SurfaceThickness95Percentile)] = float(
+                    np.percentile(features[featurename((label_s, label_v), FEATURES.SurfaceThicknessLIST)], 95)
+                )
+            else:
+                features[featurename((label_s, label_v), FEATURES.SurfaceThickness95Percentile)] = np.nan
         else:
             features[featurename((label_s, label_v), FEATURES.SpatialRelation)] = np.nan
             features[featurename((label_s, label_v), FEATURES.SpatialRelationMerged)] = np.nan
