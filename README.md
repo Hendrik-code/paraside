@@ -60,8 +60,14 @@ pip install -e .
 
 (Optionally) Download the latest model weights from the release section (https://github.com/Hendrik-code/paraside/releases).
 
-If you have done so, you can use PARASIDE like this:
+If you have done so, you can use PARASIDE:
 
+Command-line-interface (CLI):
+```python
+paraside --i <inputfile/folder> --m <model-version/path> [--cpu]
+```
+
+Or here an example code to run PARASIDE:
 ```python
 from TPTBox import NII
 from src.load_model import load_model

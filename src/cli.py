@@ -59,6 +59,7 @@ def entry_point():
             print(f"Outputs for {input_file} already exists. Skipping.")
             continue
 
+        print("Processing file:", input_file)
         # load the image you want to process
         try:
             input_nii: NII = NII.load(input_file, seg=False)
