@@ -27,6 +27,10 @@ If you are using PARASIDE, please cite the following:
 }
 ```
 
+> [!WARNING]
+> This is currently the pre-print and will be replaced by the peer-reviewed paper as soon as available!
+
+
 ## Installation
 
 The order of the following instructions is important!
@@ -60,7 +64,12 @@ pip install -e .
 
 (Optionally) Download the latest model weights from the release section (https://github.com/Hendrik-code/paraside/releases).
 
-If you have done so, you can use PARASIDE:
+Installation complete.
+
+
+## Using PARASIDE
+
+
 
 Command-line-interface (CLI):
 ```python
@@ -102,6 +111,9 @@ features: dict[str, float] = compute_features(
 )
 ```
 
+> [!TIP]
+> You can run the feature computation on masks where the ethmoid has not been splitted. It will then treat the whole ethmoid as one structure instead of three. Don't mix these, because that is not comparable with most features.
+
 
 ## Segmentation Label
 
@@ -139,6 +151,12 @@ e.G.:
 | 14  | Soft tissue Sphenoid left |
 | 15  | Soft tissue Ethmoid right |
 | 16  | Soft tissue Ethmoid left |
+
+
+## Contributing
+
+If you want to contribute, create an issue or merge request. Best to start with creating an issue and discussing the proposed changes with us before implementation.
+
 
 ## Authorship
 
